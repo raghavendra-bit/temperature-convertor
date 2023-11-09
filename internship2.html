@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Temperature Converter</h1>
+  </header>
+
+  <main>
+    <div id="converter">
+      <h2>Celsius to Fahrenheit</h2>
+      <input type="number" id="celsius"> <button id="convert-c-to-f">Convert</button>
+      <output id="fahrenheit"></output>
+
+      <h2>Fahrenheit to Celsius</h2>
+      <input type="number" id="fahrenheit"> <button id="convert-f-to-c">Convert</button>
+      <output id="celsius"></output>
+    </div>
+  </main>
+
+  <script>
+    // Get the input elements
+    const celsiusInput = document.getElementById('celsius');
+    const fahrenheitInput = document.getElementById('fahrenheit');
+
+    // Get the output elements
+    const celsiusOutput = document.getElementById('celsius');
+    const fahrenheitOutput = document.getElementById('fahrenheit');
+
+    // Create a function to convert Celsius to Fahrenheit
+    function celsiusToFahrenheit(celsius) {
+      return celsius * 9 / 5 + 32;
+    }
+
+    // Create a function to convert Fahrenheit to Celsius
+    function fahrenheitToCelsius(fahrenheit) {
+      return (fahrenheit - 32) * 5 / 9;
+    }
+
+    // Add event listeners to the Convert buttons
+    document.getElementById('convert-c-to-f').addEventListener('click', () => {
+      const fahrenheit = celsiusToFahrenheit(celsiusInput.value);
+      fahrenheitOutput.value = fahrenheit.toFixed(2);
+    });
+
+    document.getElementById('convert-f-to-c').addEventListener('click', () => {
+      const celsius = fahrenheitToCelsius(fahrenheitInput.value);
+      celsiusOutput.value = celsius.toFixed(2);
+    });
+  </script>
+</body>
+</html>
